@@ -2,8 +2,7 @@
   description = "Zig Learn";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, ... }:
@@ -35,13 +34,16 @@
       devShells = forAllSystems (pkgs: {
         default = pkgs.mkShell
           {
-            name = "Shell for this project";
+            name = "zig-learn";
 
             packages = with pkgs; [
               # formatters/linters
               nixpkgs-fmt
               # language-servers
               nil
+              zls
+              # dev
+              zig
             ];
           };
       });
