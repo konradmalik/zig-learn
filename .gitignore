@@ -3,3 +3,9 @@
 !flake.lock
 .direnv
 result
+
+# zig
+/zig-cache/
+/zig-out/
+/answers/
+/patches/healed/
